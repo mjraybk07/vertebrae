@@ -6,6 +6,7 @@
   </head>
   <body>
   <script>
+
 /* - MVC ----------------------------------------------------------------------
  * MVC (Model-View-Controller) frameworks divide your application into
  * manageable components to make it easier to organize and comprehend.
@@ -33,20 +34,19 @@
 * (and other similar frameworks) used to talk about the objects used to
 * store application data.
 */
-var Tweet = Backbone.Model.extend({  
+var Tweet = Backbone.Model.extend({
   /* This is just a bare bones Backbone model. No extra special bits to add.
    * Note that Backbone.Model is just another JavaScript class. We use extend
    * to set it up as a normal class instantiator, with the normal
-   * pseudoclassical hierarchy - NOTE: extend (in backbone) is NOT the same 
-   * function you've seen in underscore! Backbone.Model.extend is going to 
-   * subclass Backbone.Model --basically make a constructor (function) whose 
+   * pseudoclassical hierarchy - NOTE: extend (in backbone) is NOT the same
+   * function you've seen in underscore! Backbone.Model.extend is going to
+   * subclass Backbone.Model --basically make a constructor (function) whose
    * prototype has your provided properties.
    */
 });
 
 /* Backbone models are pseudoclassically instantiated: */
 var myTweet = new Tweet();
-
 /* Backbone models are meant to store data, so it's important to understand
  * their getters and setters: */
 myTweet.set('message', 'Hello, world!');
@@ -54,7 +54,7 @@ myTweet.set('message', 'Hello, world!');
 /* Using the reference, get the message attribute of the model and display it:
  * http://backbonejs.org/#Model-get */
 
-// window.alert(YOUR CODE HERE);
+window.alert(myTweet.get('message'));
 
 /* - Backbone EVENTS ----------------------------------------------------------
  * Backbone gives us the ability to listen for events on our models,
@@ -83,9 +83,10 @@ myTweet.on('change',
     console.log(e);
 
     // Write code to log the changed attribute:
-    // console.log(YOUR CODE HERE);
+    console.log('changed attribute: ', e.changed);
   }
 );
+
 
 /* Backbone works through getters/setters. If you change something on
  * your model as if it were a plain old javascript object,
@@ -97,6 +98,7 @@ myTweet.on('change',
  * and write a one-liner that will make our `change` listener fire: */
 
 // myTweetYOUR CODE HERE;
+myTweet.set('message', 'Hello');
 
 /* Once you have the `change` event firing, move on to rendering! */
   </script>
